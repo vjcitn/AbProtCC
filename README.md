@@ -1,6 +1,6 @@
 # barca
 
-Bayesian absolute risk with case-control data
+Bayesian absolute risk with case-control data.  This is an R package that uses the JAGS system to perform sensitivity analysis for the relationship between antibody concentration and disease risk.
 
 Application: inference on protective antibody concentrations in case-control study of Group B Strep infections in neonates.
 
