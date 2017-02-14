@@ -1,6 +1,6 @@
 Package: barca
 Title: bayesian absolute risk with case-control design
-Version: 0.0.3
+Version: 0.0.4
 Author: VJ Carey <stvjc@channing.harvard.edu>
 Description: bayesian absolute risk with case-control design
 Suggests: 
