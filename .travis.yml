@@ -21,7 +21,7 @@ apt_packages:
   - libv8-dev
 
 r_packages:
-  - rjags
+  - rjags, modeest
 
 notifications:
   email:
