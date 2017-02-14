@@ -1,15 +1,12 @@
-sudo: false
+sudo: true
 language: r
 cache: packages
 
 before_install:
-  - sudo add-apt-repository ppa:marutter/rrutter -y
+  - sudo add-apt-repository ppa:marutter/rrutter
+  - sudo add-apt-repository ppa:marutter/c2d4u
   - sudo apt-get update
-  - sudo apt-get jags
-  - sudo apt-get install r-cran-rjags
-
-r_binary_packages: 
-  - rjags
+  - sudo apt-get install r-base r-base-dev jags r-cran-rjags
 
 r:
   - release
