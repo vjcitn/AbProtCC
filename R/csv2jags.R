@@ -1,4 +1,6 @@
 #' convert CSV in a specific format to a jagsdata file
+#' @import rjags
+#' @importFrom utils read.csv
 #' @param type character string in \code{c("TypeIII", "TypeIa", "TypeV")}
 #' @param package name of package in which the file will be found under \code{csv/} in installed folder
 #' @param dodump logical indicating that the base::dump function will be used to create a .jagsdata file, with prefix given by the value of \code{type}

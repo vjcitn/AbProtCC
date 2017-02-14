@@ -1,4 +1,9 @@
 #' plot a qqplot relative to a weibull distribution
+#' @import survival
+#' @importFrom graphics abline
+#' @importFrom graphics plot
+#' @importFrom graphics segments
+#' @importFrom stats pweibull
 #' @param x vector of numbers
 #' @param conf.int numeric confidence coefficient for EDF CIs
 #' @param \dots not used
