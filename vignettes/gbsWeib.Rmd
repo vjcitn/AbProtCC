@@ -68,7 +68,7 @@ Posterior modes and posterior 75th percentiles.
 
 ```{r dopos,fig=TRUE}
 getModes = function(run) {
- sapply(run, function(z) apply(z,2,function(w)mlv(w,method="venter", type="shorth")$M))
+ sapply(run, function(z) apply(z,2,function(w)mlv(w,method="venter", type="shorth")))
 }
 
 getQ3 = function(run) {
