@@ -2,10 +2,11 @@
 
 export(csv2jags)
 export(editBugPars)
+export(fig3)
 export(weiqqci)
+import(modeest)
 import(rjags)
 import(survival)
-import(modeest)
 importFrom(graphics,abline)
 importFrom(graphics,plot)
 importFrom(graphics,segments)

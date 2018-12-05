@@ -9,4 +9,5 @@ Imports: survival, modeest
 Maintainer: VJ Carey <stvjc@channing.harvard.edu>
 License: Artistic-2.0
 LazyLoad: yes
-RoxygenNote: 6.0.0
+RoxygenNote: 6.1.1
+Encoding: UTF-8
