@@ -5,6 +5,12 @@
 #' @param type character string in \code{c("TypeIII", "TypeIa", "TypeV")}
 #' @param package name of package in which the file will be found under \code{csv/} in installed folder
 #' @param dodump logical indicating that the base::dump function will be used to create a .jagsdata file, with prefix given by the value of \code{type}
+#' @examples
+#' od = getwd()
+#' setwd(tempdir())
+#' csv2jags("TypeV")
+#' readLines("TypeV.jagsdata")
+#' setwd(od)
 #' @export
 csv2jags = function(type, package="barca",
    dodump = TRUE) {

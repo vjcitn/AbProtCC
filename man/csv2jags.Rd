@@ -16,3 +16,10 @@ csv2jags(type, package = "barca", dodump = TRUE)
 \description{
 convert CSV in a specific format to a jagsdata file
 }
+\examples{
+od = getwd()
+setwd(tempdir())
+csv2jags("TypeV")
+readLines("TypeV.jagsdata")
+setwd(od)
+}
