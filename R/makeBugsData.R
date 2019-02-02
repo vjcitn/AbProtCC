@@ -2,8 +2,9 @@
 #' @param csvfile character(1) path to a CSV file with specific layout, see note
 #' @param prefix character(1) used to prefix ".jagsdata" for output
 #' @param dodump logical(1) if true, will write data in jags format to [prefix].jagsdata
+#' @note Some csv files used in this application had a 'Median' summary as last line.  This must be removed.
 #' @examples
-#' infile = system.file(paste0("/csv/", "rewriteV", ".csv") # use existing test file
+#' infile = system.file(paste0("csv/", "rewriteV", ".csv"), package="barca") # use existing test file
 #' tdir = tempdir()
 #' od = getwd()
 #' setwd(tdir)
@@ -14,7 +15,6 @@
 makeBugsData = function (csvfile, prefix="test", dodump = TRUE) 
 {
     sspec = read.csv(csvfile, stringsAsFactors = FALSE)
-    sspec = sspec[-nrow(sspec), ]
     N = nrow(sspec)
     A = sspec$Control.Maternal.Ab
     A[seq(1, N, 4)] = sspec[seq(1, N, 4), 3]

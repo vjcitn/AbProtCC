@@ -16,6 +16,9 @@ makeBugsData(csvfile, prefix = "test", dodump = TRUE)
 \description{
 create input for barca from a csvfile that has a particular structure
 }
+\note{
+Some csv files used in this application had a 'Median' summary as last line.  This must be removed.
+}
 \examples{
 infile = system.file(paste0("csv/", "rewriteV", ".csv"), package="barca") # use existing test file
 tdir = tempdir()
