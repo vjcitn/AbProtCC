@@ -1,0 +1,51 @@
+model sim1a;
+const N= 68 ,Nstrat= 17 ,Nsubg = 2, P=40;
+# for normal AB concent
+var
+  str[N], d[N], id[N], A[N], # stratum, case, age, Ab
+  d1[N], lam[Nsubg], llam[Nsubg], v[Nsubg], 
+  pi[Nstrat], vca, vco, lca, lco, pmean, upper[N], x[P], T1, T2, post[P];
+
+data
+  str, d, A in "newsim.dat";
+parameters in "sim1a.in";
+
+{
+# prior for pi
+for (i in 1:Nstrat)
+   { pi[i] ~ dbeta(25,2500); }
+
+# priors for v, lam 
+for (i in 1:Nsubg)
+   {   
+   v[i] ~ dgamma(1.0,.0001);       # slowly decreasing on pos. reals
+   llam[i] ~ dnorm(0.0,.0001);
+   log(lam[i]) <- llam[i];
+   }   
+
+x[1] <- .1; 
+for (i in 2:P)
+{
+x[i] <- x[i-1]+.1;
+}
+
+for (j in 1:P)
+{
+#T1 <- pmean*(exp(-lca*pow(x[j],vca)));
+#T2 <- (1-pmean)*(exp(-lco*pow(x[j],vco)));
+post[j] <- pmean*(exp(-lca*pow(x[j],vca)))/(pmean*(exp(-lca*pow(x[j],vca)))+ (1-pmean)*(exp(-lco*pow(x[j],vco))));
+}
+
+for (i in 1:N)
+ { 
+ d1[i] <- d[i] + 1;
+ d[i] ~ dbern(pi[str[i]]);
+A[i] ~ dweib(v[d1[i]],lam[d1[i]]);  # censored weibull model
+ }
+
+vca <- v[2];
+vco <- v[1];
+lca <- lam[2];
+lco <- lam[1];
+pmean <- mean(pi[]);
+}

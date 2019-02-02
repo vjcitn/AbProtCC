@@ -3,6 +3,7 @@
 export(csv2jags)
 export(editBugPars)
 export(fig3)
+export(makeBugsData)
 export(weiqqci)
 import(modeest)
 import(rjags)
