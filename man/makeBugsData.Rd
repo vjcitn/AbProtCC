@@ -17,7 +17,7 @@ makeBugsData(csvfile, prefix = "test", dodump = TRUE)
 create input for barca from a csvfile that has a particular structure
 }
 \examples{
-infile = system.file(paste0("/csv/", "rewriteV", ".csv") # use existing test file
+infile = system.file(paste0("csv/", "rewriteV", ".csv"), package="barca") # use existing test file
 tdir = tempdir()
 od = getwd()
 setwd(tdir)
