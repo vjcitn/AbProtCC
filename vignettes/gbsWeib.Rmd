@@ -86,6 +86,22 @@ doplot = function(run, type="Ia", at0=.01, topconc=2, toprate=1.2) {
 
 doplot(cV, type="V")
 ```
+# Type III illustration
+
+```{r doiii}
+bugpath = system.file("bugs/weib.bug", package="barca")
+curtext = readLines(bugpath)
+curtext = barca:::editBugPars(curtext, beta_a=25, beta_b=2500)
+jnk = csv2jags("TypeIII") # formatted
+dIII = read.jagsdata("TypeIII.jagsdata")
+writeLines(curtext, "TypeIII.bug")
+mIII = jags.model("TypeIII.bug", data=dIII, inits= 
+    list( llam= c(.75,.5), v = c(.75,.5)), n.chains = 3, quiet=TRUE)
+update(mIII, 5000, progress.bar="none")
+cIII = coda.samples(mIII, "post", 10000, progress.bar="none")
+cIII.summ = summary(cIII)
+doplot(cIII, type="III")
+```
 
 
 # barca

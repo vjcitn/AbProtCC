@@ -18,7 +18,7 @@ csv2jags = function(type, package="barca",
  targ = system.file(paste0("/csv/", type, ".csv"), package=package)
  sspec = read.csv(targ, stringsAsFactors=FALSE)
 #         Subject Serotype Case.Maternal.Ab Control.Maternal.Ab
- sspec = sspec[-nrow(sspec),] # drop median record
+# sspec = sspec[-nrow(sspec),] # drop median record
  N = nrow(sspec)
  A = sspec$Control.Maternal.Ab # general Ab record
  A[seq(1,N,4)] = sspec[seq(1,N,4), 3]
